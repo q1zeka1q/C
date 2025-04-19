@@ -6,7 +6,7 @@
     <RootNamespace>C_alused</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>C_alused._3._osa_C__Kordused__massiivid_ja_klassid._Teoria_Ülesanded.MainClass2</StartupObject>
+    <StartupObject>C_alused.madu.Program</StartupObject>
   </PropertyGroup>
 
 </Project>
