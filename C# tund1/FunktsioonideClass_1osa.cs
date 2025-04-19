@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace C_alused
 {
-    class FunktsioonideClass
+    class FunktsioonideClass_1osa
     {
         public static float Kalkulaator(int arv1, int arv2)
         {
