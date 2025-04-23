@@ -11,7 +11,7 @@ namespace C_alused._5._osa_C__Kollektsioonid._Listid_ja_sõnastikud._Meetodid_ja
     {
         public string Name { get; set; }
     }
-    internal class MainClass
+    internal class MainClass_tunnis
     {
         //1. ArrayList (System.Collections)
         static void Main(string[] args)
