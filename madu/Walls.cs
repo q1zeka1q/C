@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace C_alused.madu
 {
     // Класс Walls отвечает за создание и отрисовку стен, а также проверку столкновений с ними
+    // Класс Walls отвечает за создание и отрисовку стен, а также проверку столкновений с ними
     class Walls
     {
         List<Figure> wallList;  // список фигур
 
-        public Walls(int mapWidth, int mapHeight)  // принимает габариты карты
+        public Walls(int mapWidth, int mapHeight)
         {
             wallList = new List<Figure>();
 
@@ -21,7 +22,7 @@ namespace C_alused.madu
             VerticalLine leftLine = new VerticalLine(0, mapHeight - 1, 0, '+');
             VerticalLine rightLine = new VerticalLine(0, mapHeight - 1, mapWidth - 2, '+');
 
-            // принцип полиморфизма (в список с фигурами добавляются объекты наследников)
+            // Принцип полиморфизма
             wallList.Add(upLine);
             wallList.Add(downLine);
             wallList.Add(leftLine);
@@ -47,6 +48,21 @@ namespace C_alused.madu
                 wall.Draw();
             }
         }
+
+        public void AddObstacle(int mapWidth, int mapHeight)
+        {
+            Random rand = new Random();
+            int x = rand.Next(10, mapWidth - 10);
+            int y = rand.Next(5, mapHeight - 5);
+            int length = rand.Next(3, 7);
+            bool isHorizontal = rand.Next(0, 2) == 0; // случайный выбор: горизонталь или вертикаль
+
+            Obstacle obstacle = new Obstacle(x, y, length, isHorizontal); // используем Obstacle
+            wallList.Add(obstacle);
+            obstacle.Draw();
+        }
+
+
     }
 }
 

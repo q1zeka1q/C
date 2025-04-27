@@ -6,7 +6,7 @@
     <RootNamespace>C_alused</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>C_alused._5._osa_C__Kollektsioonid._Listid_ja_sõnastikud._Meetodid_ja_näidised.Program</StartupObject>
+    <StartupObject>C_alused.madu.Program</StartupObject>
   </PropertyGroup>
 
 </Project>

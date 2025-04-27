@@ -81,5 +81,22 @@ namespace C_alused.madu
                 return false;
             }
         }
+        public void Decrease(int amount)
+        {
+            if (pList.Count > amount)
+            {
+                for (int i = 0; i < amount; i++)
+                {
+                    Point tail = pList.First();
+                    pList.Remove(tail);
+                    tail.Clear();
+                }
+            }
+        }
+        public List<Point> GetPoints()
+        {
+            return pList;
+        }
+
     }
 }

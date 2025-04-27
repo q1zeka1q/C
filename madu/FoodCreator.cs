@@ -12,7 +12,6 @@ namespace C_alused.madu
         int mapWidth;
         int mapHeight;
         char sym;
-
         Random random = new Random();
 
         public FoodCreator(int mapWidth, int mapHeight, char sym)
@@ -22,11 +21,15 @@ namespace C_alused.madu
             this.sym = sym;
         }
 
-        public Point CreateFood()  // генерируются произвольные координаты в пределах карты и создается точка (еда)
+        // Создание еды без проверки стен
+        public Point CreateFood()
         {
             int x = random.Next(2, mapWidth - 2);
             int y = random.Next(2, mapHeight - 2);
             return new Point(x, y, sym);
         }
+
+
+
     }
 }
