@@ -19,7 +19,7 @@ namespace C_alused.madu
                 // Если горизонтальное — рисуем по X вправо
                 for (int i = 0; i < length; i++)
                 {
-                    pList.Add(new Point(xStart + i, yStart, '#'));
+                    pList.Add(new Point(xStart + i, yStart, '▓'));
                 }
             }
             else
@@ -27,7 +27,7 @@ namespace C_alused.madu
                 // Если вертикальное — рисуем вниз по Y
                 for (int i = 0; i < length; i++)
                 {
-                    pList.Add(new Point(xStart, yStart + i, '#'));
+                    pList.Add(new Point(xStart, yStart + i, '▓'));
                 }
             }
         }

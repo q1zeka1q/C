@@ -16,17 +16,27 @@ namespace C_alused.madu
         {
             wallList = new List<Figure>();
 
-            // Отрисовка рамочки
-            HorizontalLine upLine = new HorizontalLine(0, mapWidth - 2, 0, '+');
-            HorizontalLine downLine = new HorizontalLine(0, mapWidth - 2, mapHeight - 1, '+');
-            VerticalLine leftLine = new VerticalLine(0, mapHeight - 1, 0, '+');
-            VerticalLine rightLine = new VerticalLine(0, mapHeight - 1, mapWidth - 2, '+');
+            // Создание рамки вокруг поля
+            HorizontalLine upLine = new HorizontalLine(1, mapWidth - 3, 0, '═');
+            HorizontalLine downLine = new HorizontalLine(1, mapWidth - 3, mapHeight - 1, '═');
+            VerticalLine leftLine = new VerticalLine(1, mapHeight - 2, 0, '║');
+            VerticalLine rightLine = new VerticalLine(1, mapHeight - 2, mapWidth - 2, '║');
 
-            // Принцип полиморфизма
             wallList.Add(upLine);
             wallList.Add(downLine);
             wallList.Add(leftLine);
             wallList.Add(rightLine);
+
+            // Углы рамки
+            HorizontalLine topLeftCorner = new HorizontalLine(0, 0, 0, '╔');
+            HorizontalLine topRightCorner = new HorizontalLine(mapWidth - 2, mapWidth - 2, 0, '╗');
+            HorizontalLine bottomLeftCorner = new HorizontalLine(0, 0, mapHeight - 1, '╚');
+            HorizontalLine bottomRightCorner = new HorizontalLine(mapWidth - 2, mapWidth - 2, mapHeight - 1, '╝');
+
+            wallList.Add(topLeftCorner);
+            wallList.Add(topRightCorner);
+            wallList.Add(bottomLeftCorner);
+            wallList.Add(bottomRightCorner);
         }
 
         internal bool IsHit(Figure figure)

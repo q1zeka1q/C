@@ -9,7 +9,7 @@ namespace C_alused.madu
     {
         static void Main(string[] args)
         {
-            // Устанавливаем правильную кодировку и размер окна
+            // Устанавливаем  кодировку и размер окна
             Console.OutputEncoding = Encoding.UTF8;
             Console.SetWindowSize(110, 25);
             Console.SetBufferSize(110, 25);
@@ -17,13 +17,13 @@ namespace C_alused.madu
             while (true)
             {
                 Console.Clear(); // Полностью очищаем экран
-                ShowStartMenu(); // Показываем красивое стартовое меню
+                ShowStartMenu(); // Показываем стартовое меню
                 Console.Clear(); // Снова очищаем, чтобы начать игру
 
                 int finalScore = StartGame(); // Запускаем игру
 
                 Console.Clear(); // Чистим всё перед показом окончания игры
-                ShowGameOverScreen(); // Показываем красивую надпись "Game Over"
+                ShowGameOverScreen(); // Показываем надпись "Game Over"
                 Thread.Sleep(2000); // Пауза 2 секунды, чтобы игрок увидел надпись
 
                 AskPlayerNameAndSaveResult(finalScore); // Спрашиваем имя и сохраняем результат
@@ -73,11 +73,11 @@ namespace C_alused.madu
             Walls walls = new Walls(80, 25); // Создаём стены
             walls.Draw(); // Рисуем стены
 
-            Point p = new Point(4, 5, '@'); // Начальная точка змейки
+            Point p = new Point(4, 5, '▣'); // Начальная точка змейки
             Snake snake = new Snake(p, 4, Direction.RIGHT); // Создаём змейку
             snake.Draw(); // Рисуем змейку
 
-            FoodCreator foodCreator = new FoodCreator(80, 25, '$'); // Создаём еду
+            FoodCreator foodCreator = new FoodCreator(80, 25, '✿'); // Создаём еду
             Point food = foodCreator.CreateFood();
             food.Draw(); // Рисуем еду
 
@@ -106,7 +106,7 @@ namespace C_alused.madu
                         foreach (var point in snake.GetPoints())
                             point.Clear(); // Очищаем старую змейку
 
-                        snake = new Snake(new Point(4, 5, '@'), 4, Direction.RIGHT); // Новая змейка
+                        snake = new Snake(new Point(4, 5, '▣'), 4, Direction.RIGHT); // Новая змейка
                         snake.Draw();
                     }
                 }
