@@ -6,7 +6,7 @@
     <RootNamespace>C_alused</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>C_alused.madu.Program</StartupObject>
+    <StartupObject>C_alused.Praktiline_töö_Kangelane.Program</StartupObject>
   </PropertyGroup>
 
 </Project>
