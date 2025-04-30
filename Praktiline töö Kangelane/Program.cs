@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace C_alused.Praktiline_töö_Kangelane
 {
     internal class Program
     {
-        // Staatiline väli – hoiab kõiki loodud kangelasi
+        // Статическое поле – список всех героев
         static List<Kangelane> kangelased = new List<Kangelane>();
 
-        // Staatiline meetod – loeb andmed failist ja täidab listi
+        // Метод для чтения из файла
         public static void LoeKangelasedFailist(string failinimi)
         {
             if (!File.Exists(failinimi))
             {
-                Console.WriteLine("❌ Faili ei leitud: " + failinimi);
+                Console.WriteLine("Faili ei leitud: " + failinimi);
                 return;
             }
 
@@ -42,22 +40,46 @@ namespace C_alused.Praktiline_töö_Kangelane
             }
         }
 
-        // 🏁 Main – programmikäivitus
+
         public static void Main()
         {
             string failitee = "C:\\Users\\Admin\\Desktop\\visual studio работы\\C-alused\\Praktiline töö Kangelane\\andmed.txt";
             LoeKangelasedFailist(failitee);
 
-            Console.WriteLine("Kangelased failist:\n");
+            // Ищем обычного и супергероя
+            Kangelane tavakangelane = kangelased.Find(k => k.GetType() == typeof(Kangelane));
 
-            foreach (Kangelane k in kangelased)
+            Kangelane superK = kangelased.Find(k => k.GetType().Name == "SuperKangelane");
+            SuperKangelane superkangelane = superK as SuperKangelane;
+
+            Console.WriteLine("TAVAKANGELANE\n");
+
+            if (tavakangelane != null)
             {
-                Console.WriteLine(k.ToString());
-                Console.WriteLine("Tervitus: " + k.Tervitus());
-                Console.WriteLine("Riietus: " + k.Vormiriietus());
-                Console.WriteLine("Staatus: " + k.MissiooniStaatus());
-                Console.WriteLine("Päästetud (100 inimest): " + k.Paasta(100));
-                Console.WriteLine(new string('-', 40));
+                Console.WriteLine(tavakangelane.ToString());
+                Console.WriteLine("Päästetud (1000): " + tavakangelane.Paasta(1000));
+                Console.WriteLine("Riietus: " + tavakangelane.Vormiriietus());
+                Console.WriteLine("Tervitus: " + tavakangelane.Tervitus());
+                Console.WriteLine("Staatus: " + tavakangelane.MissiooniStaatus());
+            }
+            else
+            {
+                Console.WriteLine("Tavakangelast ei leitud!");
+            }
+
+            Console.WriteLine("\nSUPERKANGELANE\n");
+
+            if (superkangelane != null)
+            {
+                Console.WriteLine(superkangelane.ToString());
+                Console.WriteLine("Päästetud (1000): " + superkangelane.Paasta(1000));
+                Console.WriteLine("Riietus: " + superkangelane.Vormiriietus());
+                Console.WriteLine("Tervitus: " + superkangelane.Tervitus());
+                Console.WriteLine("Staatus: " + superkangelane.MissiooniStaatus());
+            }
+            else
+            {
+                Console.WriteLine("Superkangelast ei leitud!");
             }
         }
     }
