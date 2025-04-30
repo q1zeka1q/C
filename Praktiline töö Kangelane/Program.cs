@@ -46,11 +46,19 @@ namespace C_alused.Praktiline_töö_Kangelane
             string failitee = "C:\\Users\\Admin\\Desktop\\visual studio работы\\C-alused\\Praktiline töö Kangelane\\andmed.txt";
             LoeKangelasedFailist(failitee);
 
-            // Ищем обычного и супергероя
-            Kangelane tavakangelane = kangelased.Find(k => k.GetType() == typeof(Kangelane));
+            Kangelane tavakangelane = null;
+            SuperKangelane superkangelane = null;
 
-            Kangelane superK = kangelased.Find(k => k.GetType().Name == "SuperKangelane");
-            SuperKangelane superkangelane = superK as SuperKangelane;
+            foreach (Kangelane k in kangelased)
+            {
+                if (tavakangelane == null && k is Kangelane && !(k is SuperKangelane))
+                    tavakangelane = k;
+                else if (superkangelane == null && k is SuperKangelane)
+                    superkangelane = (SuperKangelane)k;
+
+                if (tavakangelane != null && superkangelane != null)
+                    break;
+            }
 
             Console.WriteLine("TAVAKANGELANE\n");
 

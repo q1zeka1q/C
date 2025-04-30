@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace C_alused.madu
 {
     // Класс Walls отвечает за создание и отрисовку стен, а также проверку столкновений с ними
-    // Класс Walls отвечает за создание и отрисовку стен, а также проверку столкновений с ними
     class Walls
     {
         List<Figure> wallList;  // список фигур
